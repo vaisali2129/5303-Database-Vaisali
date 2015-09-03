@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+# 5303-Adv-Database
+A database course covering relational and no-sql databases.
+=======
 # 5303-Database-Vaisali
 
 
@@ -6,3 +10,4 @@
 Name - Vaisali Namburi
 
 Email - vaishalivarma93@gmail.com
+>>>>>>> 11b7489f5d3372855c0db7c14f97893a0e32d455
