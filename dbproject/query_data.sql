@@ -7,17 +7,17 @@
 Show all passengers
 
 SQL:
-'''
+```
 SELECT * 
 FROM  `Users` 
 WHERE  ` Role_Id` = ( 
 SELECT Role_Id
 FROM Role
 WHERE User_Type =  'Passenger' ) 
-'''
+```
 
 #### Answer:
-'''
+```
 5660ae2cf2af6
 alonso
 consuelo
@@ -44,7 +44,7 @@ badgirl
 3333
 30
 
-'''
+```
 
 
 
@@ -52,7 +52,7 @@ badgirl
 Show all administrators that have access
 
 SQL:
-'''
+```
 SELECT * 
 FROM  `Users` 
 WHERE  ` Role_Id` = ( 
@@ -60,10 +60,10 @@ SELECT Role_Id
 FROM Role
 WHERE User_Type =  'Admin' ) 
 LIMIT 0 , 30
-'''
+```
 
 #### Answer:
-'''
+```
 5660ae2c15143
 aguilar
 carlos
@@ -102,7 +102,7 @@ milfnew
 998-719-680
 1111
 15
-'''
+```
 
 
 
@@ -110,15 +110,15 @@ milfnew
 Show all reservations organized by Flight Number.
 
 SQL:
-'''
+```
 SELECT * 
 FROM  `Reservations` 
 ORDER BY Flight_Number
 LIMIT 0 , 30
-'''
+```
 
 #### Answer:
-'''
+```
 566242feb00a3
 700-DL
 2015-12-04 17:48:24
@@ -142,7 +142,7 @@ BS22
 9999
 5660ae2c84576
 FR11
-'''
+```
 
 
 
@@ -150,14 +150,14 @@ FR11
 Show the tail number and status of all aircraft
 
 SQL:
-'''
+```
 SELECT Tail_Number, 
 STATUS FROM  `Aircraft` 
 LIMIT 0 , 30
-'''
+```
 
 #### Answer:
-'''
+```
 Tail_Number
 STATUS
 
@@ -169,7 +169,7 @@ STATUS
 
 133EV
 1
-'''
+```
 
 
 
@@ -177,7 +177,7 @@ STATUS
 Show a history of reservations for passenger x
 
 SQL:
-'''
+```
 SELECT * 
 FROM  `Reservations` 
 WHERE UUID = ( 
@@ -186,10 +186,10 @@ FROM Users
 WHERE Last_Name =  'arias'
 AND First_Name =  'carla' ) 
 LIMIT 0 , 30
-'''
+```
 
 #### Answer:
-'''
+```
 Reservations_Id
 Flight_Number
 Flight_Date
@@ -205,7 +205,7 @@ Class_Id
 8888
 5660ae2ac8855
 CO33
-'''
+```
 
 
 
@@ -213,7 +213,7 @@ CO33
 Add a new customer(passenger)
 
 SQL:
-'''
+```
 INSERT INTO Users
 VALUES (
  '56636407986dc',  'Naveen Sai',  'Vupputuri',  '4700 Taft Blvd',  'Wichita falls',  'Texas',  '76308',  'naveensai.vupputuri1@gmail.com',  'nvupputuri', '940-324-9856', (
@@ -223,12 +223,12 @@ FROM Role
 WHERE User_Type =  'Passenger'
 ), 99
 )
-'''
+```
 
 #### Answer:
-'''
+```
 1 row effected.
-'''
+```
 
 
 
@@ -236,7 +236,7 @@ WHERE User_Type =  'Passenger'
 Add a new administrator(worker)
 
 SQL:
-'''
+```
 INSERT INTO Users
 VALUES (
  '566361962b40e',  'Mannava',  'Ramesh',  '4700 Taft Blvd',  'Wichita falls',  'Texas',  '76308',  'rmannava94@gmail.com',  'rmannava',  '940-782-6476', (
@@ -246,20 +246,20 @@ FROM Role
 WHERE User_Type =  'Admin'
 ), 7
 )
-'''
+```
 
 #### Answer:
 
-'''
+```
 1 row affected.
-'''
+```
 
 
 #### Question 8:
 Determine if a specific flight is full
 
 SQL:
-'''
+```
 select x.Tail
 from 
 (SELECT COUNT( * ) PassCount , f.Tail_Number as Tail
@@ -269,12 +269,12 @@ AND rs.`Flight_Date` = f.`Flight_Date`
 and rs.`Flight_Number` ='700-DL'
 and rs.`Flight_Date` = '2015-12-04 17:48:24') as x, Aircraft a
 where a.capacity<PassCount and a.`Tail_Number` = x.Tail
-'''
+```
 
 #### Answer:
-'''
+```
 Flights are not full.
-'''
+```
 
 
 
@@ -282,15 +282,15 @@ Flights are not full.
 Find all flights that are delayed.
 
 SQL:
-'''
+```
 SELECT * 
 FROM  `Flights` 
 WHERE  `Status` =  'Delayed'
 LIMIT 0 , 30
-'''
+```
 
 #### Answer:
-'''
+```
 Flight_Number
 Flight_Date
 Tail_Number
@@ -322,7 +322,7 @@ Delayed
 16:19:36
 307
 22:19:36
-'''
+```
 
 
 
@@ -330,18 +330,18 @@ Delayed
 Cancel a Reservation.
 
 SQL:
-'''
+```
 DELETE 
 FROM Reservations 
 WHERE Reservations_Id =  '566242ff28ec3'
 
-'''
+```
 
 #### Answer:
-'''
+```
 1 row deleted.
 
-'''
+```
 
 
 
@@ -349,7 +349,7 @@ WHERE Reservations_Id =  '566242ff28ec3'
 Show a history of flights that each aircraft was assigned to.
 
 SQL:
-'''
+```
 SELECT * 
 FROM  `Flights` 
 WHERE Tail_Number
@@ -362,10 +362,10 @@ FROM Aircraft
 )
 LIMIT 0 , 30
 
-'''
+```
 
 #### Answer:
-'''
+```
 Flight_Number
 Flight_Date
 Tail_Number
@@ -397,7 +397,7 @@ Cancelled
 22:18:41
 302
 23:18:41
-'''
+```
 
 
 
@@ -405,7 +405,7 @@ Cancelled
 Add a new user
 
 SQL:
-'''
+```
 INSERT INTO Users
 VALUES (
  '56636393029e1',  'Vaisali',  'Namburi',  '4700 Taft Blvd',  'Wichita falls',  'Texas',  '76308',  'vnamburi93@gmail.com',  'vnamburi',  '940-987-6496', (
@@ -415,12 +415,12 @@ FROM Role
 WHERE User_Type =  'Staff'
 ), 67
 )
-'''
+```
 
 #### Answer:
-'''
+```
 1 row affected.
-'''
+```
 
 
 
@@ -428,7 +428,7 @@ WHERE User_Type =  'Staff'
 List all flights in which a passenger requested a vegetarian meal
 
 SQL:
-'''
+```
 SELECT * 
 FROM  `Flights` 
 WHERE Flight_Number
@@ -442,10 +442,10 @@ FROM Meals
 WHERE Meal_Type =  'Vegetarian' )
 )
 LIMIT 0 , 30
-'''
+```
 
 #### Answer:
-'''
+```
 Flight_Number
 Flight_Date
 Tail_Number
@@ -477,7 +477,7 @@ On-Time
 22:06:05
 306
 23:06:05
-'''
+```
 
 
 
@@ -485,14 +485,14 @@ On-Time
 Show a list of all current flights,their status,and how full(via a percentage) they are.
 
 SQL:
-'''
+```
 
-'''
+```
 
 #### Answer:
-'''
+```
 
-'''
+```
 
 
 
@@ -500,7 +500,7 @@ SQL:
 Show all flights leaving x and going to y(where x and y are cities or airports).
 
 SQL:
-'''
+```
 SELECT * 
 FROM  `Flights` 
 WHERE Distance_Id
@@ -512,10 +512,10 @@ WHERE d.From =  'LAX'
 AND d.To =  'DFW'
 )
 LIMIT 0 , 30
-'''
+```
 
 #### Answer:
-'''
+```
 Flight_Number
 Flight_Date
 Tail_Number
@@ -531,7 +531,7 @@ Cancelled
 11:14:01
 304
 00:14:01
-'''
+```
 
 
 
@@ -539,7 +539,7 @@ Cancelled
 Show all flights leaving x and going to y on date z
 
 SQL:
-'''
+```
 SELECT * 
 FROM  `Flights` 
 WHERE Distance_Id
@@ -552,10 +552,10 @@ AND d.To =  'DFW'
 )
 AND Flight_Date =  '2015-01-10 11:14:01'
 LIMIT 0 , 30
-'''
+```
 
 #### Answer:
-'''
+```
 Flight_Number
 Flight_Date
 Tail_Number
@@ -571,7 +571,7 @@ Cancelled
 11:14:01
 304
 00:14:01
-'''
+```
 
 
 
@@ -579,7 +579,7 @@ Cancelled
 Show all flights leaving x and going to y on date z where departure time is in between T1 and T2
 
 SQL:
-'''
+```
 SELECT * 
 FROM  `Flights` 
 WHERE Distance_Id
@@ -594,11 +594,11 @@ AND Departure_Time
 BETWEEN  '05:53:49'
 AND  '22:34:51'
 LIMIT 0 , 30
-'''
+```
 
 
 #### Answer:
-'''
+```
 Flight_Number
 Flight_Date
 Tail_Number
@@ -615,7 +615,7 @@ Cancelled
 304
 00:14:01
 
-'''
+```
 
 
 
@@ -623,15 +623,15 @@ Cancelled
 List all planes according to capacity
 
 SQL:
-'''
+```
 SELECT * 
 FROM  `Aircraft` 
 ORDER BY Capacity
 LIMIT 0 , 30
-'''
+```
 
 #### Answer:
-'''
+```
 Tail_Number
 Airline
 Manufacture
@@ -703,7 +703,7 @@ CL600-2D24
 10
 14
 8
-'''
+```
 
 
 
@@ -711,7 +711,7 @@ CL600-2D24
 Show remaining number of Isle/Window seats available on a specific flight.
 
 SQL:
-'''
+```
 SELECT (
 (
 SELECT  `Window_Seats` 
@@ -730,13 +730,13 @@ AND Flight_Date =  '2015-12-04 17:48:24' )
 ) as remaining
 FROM dual
 LIMIT 0 , 30
-'''
+```
 
 #### Answer:
-'''
+```
 remaining
 14
-'''
+```
 
 
 
@@ -744,7 +744,7 @@ remaining
 Select the number of available first class/business/coach seats available for agiven flight.
 
 SQL:
-'''
+```
 SELECT (
 (
 
@@ -764,13 +764,13 @@ AND Flight_Date =  '2015-12-04 17:48:24' )
 ) AS remaining
 FROM dual
 LIMIT 0 , 30
-'''
+```
 
 #### Answer:
-'''
+```
 remaining
 5
-'''
+```
 
 
 
@@ -778,14 +778,14 @@ remaining
 Alter a reservation
 
 SQL:
-'''
+```
 UPDATE Reservations SET Meal_Id =8888 WHERE Reservations_Id =  '566242fea9007'
-'''
+```
 
 #### Answer:
-'''
+```
 1 row affected
-'''
+```
 
 
 
@@ -793,7 +793,7 @@ UPDATE Reservations SET Meal_Id =8888 WHERE Reservations_Id =  '566242fea9007'
 Determine the fare of a flight(Fare = $50 +(Distance * $0.11))
 
 SQL:
-'''
+```
 SELECT ( 50 + ( 
 SELECT Distance
 FROM  `Distance` 
@@ -803,11 +803,11 @@ FROM Flights
 WHERE Flight_Number =  '707-DL' ) ) * 0.11 ) AS Fare
 FROM dual
 LIMIT 0 , 30
-'''
+```
 
 #### Answer:
-'''
+```
 Fare
 268.9
-'''
+```
 
